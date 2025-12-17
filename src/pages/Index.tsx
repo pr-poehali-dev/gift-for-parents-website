@@ -182,7 +182,7 @@ const Index = () => {
             <div className="relative animate-fade-in mt-8 md:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-2xl" />
               <img 
-                src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/b37ad6b2-fed2-4680-96d6-496ce1bf05fb.jpg" 
+                src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/d67ae690-441e-452d-8d2f-2f4a5968367d.jpg" 
                 alt="Счастливая бабушка у новогодней ёлки"
                 className="relative rounded-3xl shadow-2xl w-full object-cover aspect-square md:aspect-[4/5]"
               />
