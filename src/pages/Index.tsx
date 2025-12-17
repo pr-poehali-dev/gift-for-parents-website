@@ -168,7 +168,7 @@ const Index = () => {
                 </h2>
               </div>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl">
-                Подарите родителям не вещи, а легкость тела и ясность ума.
+                Подарок, который заботится!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
                 <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
