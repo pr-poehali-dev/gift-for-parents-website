@@ -161,7 +161,7 @@ const Index = () => {
               </div>
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-red-700 text-center">
-                  ЛУЧШИЙ ПОДАРОК ДЛЯ РОДИТЕЛЕЙ
+                  Подарите родителям не вещи, а новое качество жизни!
                 </h1>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent/80 tracking-wide">
                   Легкий Цигун
