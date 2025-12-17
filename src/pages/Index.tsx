@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -121,6 +121,30 @@ const tariffs = [
 ];
 
 const Index = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const targetDate = new Date('2025-12-25T23:59:59').getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handleTariffClick = (link: string) => {
     window.open(link, '_blank');
   };
@@ -314,9 +338,27 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-block bg-red-500 text-white px-6 py-3 rounded-2xl mb-6 shadow-lg animate-pulse">
-                <p className="text-xl font-bold">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
-                <p className="text-sm">Только до 25 декабря</p>
+              <div className="inline-block bg-red-500 text-white px-6 py-4 rounded-2xl mb-6 shadow-lg">
+                <p className="text-xl font-bold mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <p className="text-sm mb-3">Только до 25 декабря</p>
+                <div className="flex gap-3 justify-center">
+                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
+                    <div className="text-2xl font-bold">{timeLeft.days}</div>
+                    <div className="text-xs">дней</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
+                    <div className="text-2xl font-bold">{timeLeft.hours}</div>
+                    <div className="text-xs">часов</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
+                    <div className="text-2xl font-bold">{timeLeft.minutes}</div>
+                    <div className="text-xs">минут</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
+                    <div className="text-2xl font-bold">{timeLeft.seconds}</div>
+                    <div className="text-xs">секунд</div>
+                  </div>
+                </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
                 ВЫБЕРИТЕ ПОДАРОК
