@@ -337,31 +337,62 @@ const Index = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <Label>Выберите вариант подарка *</Label>
+                    <Label>Выберите тариф *</Label>
                     <RadioGroup 
                       value={formData.variant}
                       onValueChange={(value) => setFormData({...formData, variant: value})}
                       required
                     >
-                      <div className="flex items-center space-x-2 border rounded-lg p-4 hover:border-secondary transition-colors">
-                        <RadioGroupItem value="trial" id="trial" />
-                        <Label htmlFor="trial" className="flex-1 cursor-pointer">
-                          <div className="font-semibold">Пробный месяц</div>
-                          <div className="text-sm text-muted-foreground">4 занятия для знакомства с практикой</div>
+                      <div className="flex items-start space-x-2 border-2 rounded-lg p-5 hover:border-secondary hover:bg-secondary/5 transition-all">
+                        <RadioGroupItem value="practical" id="practical" className="mt-1" />
+                        <Label htmlFor="practical" className="flex-1 cursor-pointer">
+                          <div className="font-bold text-lg text-primary mb-1">Практичный</div>
+                          <div className="text-sm text-muted-foreground mb-2">Записи практик в личном кабинете</div>
+                          <div className="flex items-center gap-2">
+                            <Icon name="Video" size={16} className="text-secondary" />
+                            <span className="text-sm">Доступ к видео-урокам</span>
+                          </div>
                         </Label>
                       </div>
-                      <div className="flex items-center space-x-2 border rounded-lg p-4 hover:border-secondary transition-colors">
-                        <RadioGroupItem value="standard" id="standard" />
-                        <Label htmlFor="standard" className="flex-1 cursor-pointer">
-                          <div className="font-semibold">Стандартный курс</div>
-                          <div className="text-sm text-muted-foreground">3 месяца занятий (12 занятий)</div>
+                      <div className="flex items-start space-x-2 border-2 rounded-lg p-5 hover:border-secondary hover:bg-secondary/5 transition-all">
+                        <RadioGroupItem value="optimal" id="optimal" className="mt-1" />
+                        <Label htmlFor="optimal" className="flex-1 cursor-pointer">
+                          <div className="font-bold text-lg text-primary mb-1">Оптимальный</div>
+                          <div className="text-sm text-muted-foreground mb-2">Группа с куратором</div>
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <Icon name="Users" size={16} className="text-secondary" />
+                              <span className="text-sm">Занятия в группе</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Icon name="MessageCircle" size={16} className="text-secondary" />
+                              <span className="text-sm">Поддержка куратора</span>
+                            </div>
+                          </div>
                         </Label>
                       </div>
-                      <div className="flex items-center space-x-2 border rounded-lg p-4 hover:border-secondary transition-colors">
-                        <RadioGroupItem value="full" id="full" />
-                        <Label htmlFor="full" className="flex-1 cursor-pointer">
-                          <div className="font-semibold">Полный курс</div>
-                          <div className="text-sm text-muted-foreground">6 месяцев для стабильных результатов</div>
+                      <div className="flex items-start space-x-2 border-2 border-secondary rounded-lg p-5 hover:bg-secondary/5 transition-all bg-secondary/10 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                          Рекомендуем
+                        </div>
+                        <RadioGroupItem value="maximum" id="maximum" className="mt-1" />
+                        <Label htmlFor="maximum" className="flex-1 cursor-pointer">
+                          <div className="font-bold text-lg text-primary mb-1">Максимальный</div>
+                          <div className="text-sm text-muted-foreground mb-2">Группа с Еленой</div>
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <Icon name="Star" size={16} className="text-secondary" />
+                              <span className="text-sm">Занятия с основателем</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Icon name="Users" size={16} className="text-secondary" />
+                              <span className="text-sm">Малая группа до 15 человек</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Icon name="Heart" size={16} className="text-secondary" />
+                              <span className="text-sm">Персональная поддержка</span>
+                            </div>
+                          </div>
                         </Label>
                       </div>
                     </RadioGroup>
