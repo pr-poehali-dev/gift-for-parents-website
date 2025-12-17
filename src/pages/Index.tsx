@@ -335,10 +335,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl mb-4 md:mb-6 shadow-lg">
+              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
                 <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
                 <p className="text-xs sm:text-sm mb-2 md:mb-3">Только до 25 декабря</p>
-                <div className="flex gap-2 md:gap-3 justify-center flex-wrap">
+                <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
                   <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
                     <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
                     <div className="text-xs">дней</div>
@@ -356,11 +356,11 @@ const Index = () => {
                     <div className="text-xs">секунд</div>
                   </div>
                 </div>
+                <div className="inline-block bg-yellow-400 text-primary px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-base md:text-xl shadow-lg">
+                  ⚡ Места ограничены!
+                </div>
               </div>
-              <div className="inline-block bg-yellow-400 text-primary px-6 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-lg md:text-2xl mb-4 md:mb-6 shadow-lg">
-                ⚡ Места ограничены!
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4 mt-6 md:mt-8">
                 ВЫБЕРИТЕ ПОДАРОК
               </h2>
             </div>
