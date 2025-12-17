@@ -161,14 +161,14 @@ const Index = () => {
               </div>
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-red-700 text-center">
-                  Подарите родителям не вещи, а новое качество жизни!
+                  Подарок, который заботится!
                 </h1>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent/80 tracking-wide">
                   Легкий Цигун
                 </h2>
               </div>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl">
-                Подарок, который заботится!
+                Подарите родителям не вещи, а новое качество жизни!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
                 <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
