@@ -155,22 +155,19 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent" />
         <div className="container mx-auto px-4 py-16 md:py-24 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-8 animate-fade-in">
               <div className="inline-block">
-                <span className="text-secondary font-semibold text-lg tracking-wide">🎄 Новогодний подарок</span>
+                <span className="text-secondary font-semibold text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
               </div>
-              <div className="space-y-3">
-                <h1 className="text-3xl md:text-4xl font-bold text-primary tracking-wider">
-                  ЛЕГКИЙ ЦИГУН
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight tracking-tight">
+                  ЛУЧШИЙ ПОДАРОК ДЛЯ РОДИТЕЛЕЙ
                 </h1>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                  Лучший подарок для родителей
+                <h2 className="text-2xl md:text-3xl font-semibold text-accent/80 tracking-wide">
+                  Легкий Цигун
                 </h2>
               </div>
-              <p className="text-2xl md:text-3xl text-accent font-light">
-                Шаг к здоровью и долголетию
-              </p>
-              <p className="text-lg text-muted-foreground max-w-xl">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
                 Подарите родителям не просто абонемент, а заботу об их здоровье, энергии и радости жизни. Легкий Цигун — это практика, которая меняет качество жизни.
               </p>
               <div className="flex gap-4 pt-4">
