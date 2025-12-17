@@ -153,38 +153,38 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-green-50">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent" />
-        <div className="container mx-auto px-4 py-16 md:py-24 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in">
+        <div className="container mx-auto px-4 py-12 md:py-24 relative">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-6 md:space-y-8 animate-fade-in">
               <div className="inline-block">
-                <span className="text-secondary font-semibold text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
+                <span className="text-secondary font-semibold text-base md:text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
               </div>
-              <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight tracking-tight">
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight tracking-tight">
                   ЛУЧШИЙ ПОДАРОК ДЛЯ РОДИТЕЛЕЙ
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-semibold text-accent/80 tracking-wide">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent/80 tracking-wide">
                   Легкий Цигун
                 </h2>
               </div>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl">
                 Подарите родителям не просто абонемент, а заботу об их здоровье, энергии и радости жизни. Легкий Цигун — это практика, которая меняет качество жизни.
               </p>
-              <div className="flex gap-4 pt-4">
-                <Button size="lg" className="text-lg px-8 hover-scale" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
                   Оформить подарок
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 hover-scale" onClick={() => document.getElementById('reasons')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('reasons')?.scrollIntoView({ behavior: 'smooth' })}>
                   Узнать больше
                 </Button>
               </div>
             </div>
-            <div className="relative animate-fade-in">
+            <div className="relative animate-fade-in mt-8 md:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-2xl" />
               <img 
-                src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/1a56c70d-1b47-49dc-a14b-b85e2ea32620.jpg" 
+                src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/d67ae690-441e-452d-8d2f-2f4a5968367d.jpg" 
                 alt="Счастливая бабушка у новогодней ёлки"
-                className="relative rounded-3xl shadow-2xl w-full object-cover aspect-[4/5]"
+                className="relative rounded-3xl shadow-2xl w-full object-cover aspect-square md:aspect-[4/5]"
               />
             </div>
           </div>
