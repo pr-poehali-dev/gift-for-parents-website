@@ -82,29 +82,41 @@ const testimonials = [
 
 const tariffs = [
   {
-    id: 'practical',
-    name: 'Практичный',
-    description: 'Записи практик в личном кабинете',
+    id: 'without-chat',
+    name: 'БЕЗ ЧАТА',
+    description: 'Самостоятельная практика',
     icon: 'Video',
-    features: ['Доступ к видео-урокам'],
-    link: 'https://your-payment-link.com/practical'
+    oldPrice: '9 900',
+    newPrice: '5 000',
+    features: [
+      'Изучение разминочного комплекса цигун',
+      'Тесты и ежедневные упражнения на баланс',
+      'Пластичность и восстановление мозга',
+      'Подвижность и оздоровление суставов',
+      'Уроки в Telegram канале',
+      'Уроки выходят через день',
+      'Продолжительность: 3 месяца',
+      'Дополнительный доступ: 3 месяца'
+    ],
+    link: 'https://your-payment-link.com/without-chat'
   },
   {
-    id: 'optimal',
-    name: 'Оптимальный',
-    description: 'Группа с куратором',
-    icon: 'Users',
-    features: ['Занятия в группе', 'Поддержка куратора'],
-    link: 'https://your-payment-link.com/optimal'
-  },
-  {
-    id: 'maximum',
-    name: 'Максимальный',
-    description: 'Группа с Еленой',
-    icon: 'Star',
-    features: ['Занятия с основателем', 'Малая группа до 5 человек', 'Персональная поддержка'],
+    id: 'with-chat',
+    name: 'С ЧАТОМ',
+    description: 'С поддержкой и общением',
+    icon: 'MessageCircle',
+    oldPrice: '12 900',
+    newPrice: '8 000',
+    features: [
+      'Всё из тарифа БЕЗ ЧАТА',
+      'Доступ к общему чату участников',
+      'Поддержка куратора',
+      'Ответы на вопросы',
+      'Мотивация и общение с группой',
+      'Обмен опытом с другими практикующими'
+    ],
     recommended: true,
-    link: 'https://your-payment-link.com/maximum'
+    link: 'https://your-payment-link.com/with-chat'
   }
 ];
 
@@ -123,9 +135,14 @@ const Index = () => {
               <div className="inline-block">
                 <span className="text-secondary font-semibold text-lg tracking-wide">🎄 Новогодний подарок</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
-                Лучший подарок для ваших родителей
-              </h1>
+              <div className="space-y-3">
+                <h1 className="text-3xl md:text-4xl font-bold text-primary tracking-wider">
+                  ЛЕГКИЙ ЦИГУН
+                </h1>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+                  Лучший подарок для родителей
+                </h2>
+              </div>
               <p className="text-2xl md:text-3xl text-accent font-light">
                 Шаг к здоровью и долголетию
               </p>
@@ -157,7 +174,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              7 причин, почему ЛЕГКИЙ ЦИГУН — лучший подарок
+              7 ПРИЧИН, ПОЧЕМУ ЛЁГКИЙ ЦИГУН — ЛУЧШИЙ ПОДАРОК ДЛЯ РОДИТЕЛЕЙ
             </h2>
             <p className="text-xl text-muted-foreground">
               Каждая причина — это забота о здоровье и счастье ваших родителей
@@ -297,60 +314,89 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
+              <div className="inline-block bg-red-500 text-white px-6 py-3 rounded-2xl mb-6 shadow-lg animate-pulse">
+                <p className="text-xl font-bold">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <p className="text-sm">Только до 25 декабря</p>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Выберите подарок
+                ВЫБЕРИТЕ ПОДАРОК
               </h2>
-              <p className="text-xl text-muted-foreground">
-                Нажмите на тариф, чтобы перейти к оплате
-              </p>
+              <div className="inline-block bg-yellow-400 text-primary px-5 py-2 rounded-full font-semibold text-lg">
+                ⚡ Места ограничены!
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {tariffs.map((tariff) => (
                 <Card 
                   key={tariff.id}
                   className={`border-2 hover-scale cursor-pointer transition-all duration-300 ${
                     tariff.recommended 
-                      ? 'border-secondary bg-secondary/10 shadow-lg' 
-                      : 'hover:border-secondary hover:shadow-md'
+                      ? 'border-secondary bg-secondary/10 shadow-2xl scale-105' 
+                      : 'hover:border-secondary hover:shadow-xl'
                   } relative overflow-hidden`}
                   onClick={() => handleTariffClick(tariff.link)}
                 >
                   {tariff.recommended && (
-                    <div className="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
-                      Рекомендуем
+                    <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                      ⭐ Рекомендуем
                     </div>
                   )}
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
-                        <Icon name={tariff.icon} size={24} className="text-secondary" />
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <Icon name={tariff.icon} size={28} className="text-secondary" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl">{tariff.name}</CardTitle>
+                        <CardTitle className="text-3xl font-bold">{tariff.name}</CardTitle>
+                        <CardDescription className="text-base mt-1">{tariff.description}</CardDescription>
                       </div>
                     </div>
-                    <CardDescription className="text-base">{tariff.description}</CardDescription>
+                    
+                    <div className="flex items-center gap-4 mt-4">
+                      <div className="text-muted-foreground line-through text-2xl">
+                        {tariff.oldPrice} ₽
+                      </div>
+                      <div className="text-4xl font-bold text-secondary">
+                        {tariff.newPrice} ₽
+                      </div>
+                      <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        Скидка {Math.round((1 - parseInt(tariff.newPrice.replace(/\s/g, '')) / parseInt(tariff.oldPrice.replace(/\s/g, ''))) * 100)}%
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {tariff.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <Icon name="Check" className="text-secondary flex-shrink-0 mt-0.5" size={18} />
-                          <span className="text-sm">{feature}</span>
+                        <div key={idx} className="flex items-start gap-3">
+                          <Icon name="Check" className="text-secondary flex-shrink-0 mt-0.5" size={20} />
+                          <span className="text-sm leading-relaxed">{feature}</span>
                         </div>
                       ))}
                     </div>
                     <Button 
-                      className="w-full mt-4 hover-scale"
+                      className="w-full mt-6 hover-scale text-lg py-6"
                       size="lg"
                       variant={tariff.recommended ? "default" : "outline"}
                     >
-                      Выбрать тариф
+                      Выбрать тариф 🎁
                     </Button>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Card className="border-2 border-primary/30 bg-gradient-to-r from-amber-50 to-green-50 max-w-2xl mx-auto">
+                <CardContent className="pt-6">
+                  <div className="space-y-3 text-left">
+                    <p className="text-lg"><strong>В основе курса:</strong> «Мой Цигун. Моя энергия» — первая ступень</p>
+                    <p className="text-base text-muted-foreground">
+                      Понятные простые уроки под присмотром опытного мастера. Всё просто и удобно 🙌
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             <p className="text-sm text-muted-foreground text-center mt-8">
