@@ -357,12 +357,12 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4 px-4">
-                ВЫБЕРИТЕ ПОДАРОК
-              </h2>
-              <div className="inline-block bg-yellow-400 text-primary px-4 py-1.5 md:px-5 md:py-2 rounded-full font-semibold text-sm md:text-lg">
+              <div className="inline-block bg-yellow-400 text-primary px-6 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-lg md:text-2xl mb-4 md:mb-6 shadow-lg">
                 ⚡ Места ограничены!
               </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
+                ВЫБЕРИТЕ ПОДАРОК
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
