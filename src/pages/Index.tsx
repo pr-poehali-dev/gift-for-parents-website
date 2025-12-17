@@ -80,31 +80,37 @@ const testimonials = [
   }
 ];
 
-const Index = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    variant: '',
-    delivery: '',
-    message: ''
-  });
+const tariffs = [
+  {
+    id: 'practical',
+    name: 'Практичный',
+    description: 'Записи практик в личном кабинете',
+    icon: 'Video',
+    features: ['Доступ к видео-урокам'],
+    link: 'https://your-payment-link.com/practical'
+  },
+  {
+    id: 'optimal',
+    name: 'Оптимальный',
+    description: 'Группа с куратором',
+    icon: 'Users',
+    features: ['Занятия в группе', 'Поддержка куратора'],
+    link: 'https://your-payment-link.com/optimal'
+  },
+  {
+    id: 'maximum',
+    name: 'Максимальный',
+    description: 'Группа с Еленой',
+    icon: 'Star',
+    features: ['Занятия с основателем', 'Малая группа до 5 человек', 'Персональная поддержка'],
+    recommended: true,
+    link: 'https://your-payment-link.com/maximum'
+  }
+];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Заявка отправлена! 🎁",
-      description: "Мы свяжемся с вами в ближайшее время для оформления подарка.",
-    });
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      variant: '',
-      delivery: '',
-      message: ''
-    });
+const Index = () => {
+  const handleTariffClick = (link: string) => {
+    window.open(link, '_blank');
   };
 
   return (
@@ -289,155 +295,67 @@ const Index = () => {
 
       <section id="gift-form" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-green-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Оформить подарок
+                Выберите подарок
               </h2>
               <p className="text-xl text-muted-foreground">
-                Заполните форму, и мы поможем выбрать идеальный вариант для ваших родителей
+                Нажмите на тариф, чтобы перейти к оплате
               </p>
             </div>
 
-            <Card className="border-2 shadow-xl">
-              <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Ваше имя *</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Как к вам обращаться?"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Телефон *</Label>
-                    <Input 
-                      id="phone" 
-                      type="tel"
-                      placeholder="+7 (___) ___-__-__"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
-                      id="email" 
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    />
-                  </div>
-
-                  <div className="space-y-3">
-                    <Label>Выберите тариф *</Label>
-                    <RadioGroup 
-                      value={formData.variant}
-                      onValueChange={(value) => setFormData({...formData, variant: value})}
-                      required
-                    >
-                      <div className="flex items-start space-x-2 border-2 rounded-lg p-5 hover:border-secondary hover:bg-secondary/5 transition-all">
-                        <RadioGroupItem value="practical" id="practical" className="mt-1" />
-                        <Label htmlFor="practical" className="flex-1 cursor-pointer">
-                          <div className="font-bold text-lg text-primary mb-1">Практичный</div>
-                          <div className="text-sm text-muted-foreground mb-2">Записи практик в личном кабинете</div>
-                          <div className="flex items-center gap-2">
-                            <Icon name="Video" size={16} className="text-secondary" />
-                            <span className="text-sm">Доступ к видео-урокам</span>
-                          </div>
-                        </Label>
+            <div className="grid md:grid-cols-3 gap-6">
+              {tariffs.map((tariff) => (
+                <Card 
+                  key={tariff.id}
+                  className={`border-2 hover-scale cursor-pointer transition-all duration-300 ${
+                    tariff.recommended 
+                      ? 'border-secondary bg-secondary/10 shadow-lg' 
+                      : 'hover:border-secondary hover:shadow-md'
+                  } relative overflow-hidden`}
+                  onClick={() => handleTariffClick(tariff.link)}
+                >
+                  {tariff.recommended && (
+                    <div className="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      Рекомендуем
+                    </div>
+                  )}
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <Icon name={tariff.icon} size={24} className="text-secondary" />
                       </div>
-                      <div className="flex items-start space-x-2 border-2 rounded-lg p-5 hover:border-secondary hover:bg-secondary/5 transition-all">
-                        <RadioGroupItem value="optimal" id="optimal" className="mt-1" />
-                        <Label htmlFor="optimal" className="flex-1 cursor-pointer">
-                          <div className="font-bold text-lg text-primary mb-1">Оптимальный</div>
-                          <div className="text-sm text-muted-foreground mb-2">Группа с куратором</div>
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                              <Icon name="Users" size={16} className="text-secondary" />
-                              <span className="text-sm">Занятия в группе</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Icon name="MessageCircle" size={16} className="text-secondary" />
-                              <span className="text-sm">Поддержка куратора</span>
-                            </div>
-                          </div>
-                        </Label>
+                      <div>
+                        <CardTitle className="text-2xl">{tariff.name}</CardTitle>
                       </div>
-                      <div className="flex items-start space-x-2 border-2 border-secondary rounded-lg p-5 hover:bg-secondary/5 transition-all bg-secondary/10 relative overflow-hidden">
-                        <div className="absolute top-2 right-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
-                          Рекомендуем
+                    </div>
+                    <CardDescription className="text-base">{tariff.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      {tariff.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <Icon name="Check" className="text-secondary flex-shrink-0 mt-0.5" size={18} />
+                          <span className="text-sm">{feature}</span>
                         </div>
-                        <RadioGroupItem value="maximum" id="maximum" className="mt-1" />
-                        <Label htmlFor="maximum" className="flex-1 cursor-pointer">
-                          <div className="font-bold text-lg text-primary mb-1">Максимальный</div>
-                          <div className="text-sm text-muted-foreground mb-2">Группа с Еленой</div>
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                              <Icon name="Star" size={16} className="text-secondary" />
-                              <span className="text-sm">Занятия с основателем</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Icon name="Users" size={16} className="text-secondary" />
-                              <span className="text-sm">Малая группа до 15 человек</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Icon name="Heart" size={16} className="text-secondary" />
-                              <span className="text-sm">Персональная поддержка</span>
-                            </div>
-                          </div>
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="delivery">Способ получения информации *</Label>
-                    <Select 
-                      value={formData.delivery}
-                      onValueChange={(value) => setFormData({...formData, delivery: value})}
-                      required
+                      ))}
+                    </div>
+                    <Button 
+                      className="w-full mt-4 hover-scale"
+                      size="lg"
+                      variant={tariff.recommended ? "default" : "outline"}
                     >
-                      <SelectTrigger id="delivery">
-                        <SelectValue placeholder="Выберите способ" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="email">Email (сертификат на почту)</SelectItem>
-                        <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                        <SelectItem value="telegram">Telegram</SelectItem>
-                        <SelectItem value="print">Печатный сертификат</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      Выбрать тариф
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Дополнительные пожелания</Label>
-                    <Textarea 
-                      id="message"
-                      placeholder="Расскажите, если есть особые пожелания или вопросы"
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      rows={4}
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full text-lg hover-scale">
-                    Отправить заявку 🎁
-                  </Button>
-
-                  <p className="text-sm text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                  </p>
-                </form>
-              </CardContent>
-            </Card>
+            <p className="text-sm text-muted-foreground text-center mt-8">
+              После выбора тарифа вы перейдёте на страницу оплаты
+            </p>
           </div>
         </div>
       </section>
