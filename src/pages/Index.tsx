@@ -193,11 +193,11 @@ const Index = () => {
 
       <section id="reasons" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6 px-4">
               7 ПРИЧИН, ПОЧЕМУ ЛЁГКИЙ ЦИГУН — ЛУЧШИЙ ПОДАРОК ДЛЯ РОДИТЕЛЕЙ
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-4">
               Каждая причина — это забота о здоровье и счастье ваших родителей
             </p>
           </div>
@@ -208,26 +208,26 @@ const Index = () => {
                 <AccordionItem 
                   key={reason.id} 
                   value={reason.id}
-                  className="border-2 border-border rounded-2xl px-6 hover:border-secondary transition-colors bg-card shadow-sm"
+                  className="border-2 border-border rounded-2xl px-4 md:px-6 hover:border-secondary transition-colors bg-card shadow-sm"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <div className="flex items-start gap-4 w-full pr-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                        <Icon name={reason.icon} size={24} className="text-secondary" />
+                  <AccordionTrigger className="text-left hover:no-underline py-4 md:py-6">
+                    <div className="flex items-start gap-3 md:gap-4 w-full pr-2 md:pr-4">
+                      <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                        <Icon name={reason.icon} size={20} className="text-secondary md:w-6 md:h-6" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-primary mb-1">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-1">
                           {reason.title}
                         </h3>
-                        <p className="text-muted-foreground font-normal">
+                        <p className="text-sm sm:text-base text-muted-foreground font-normal">
                           {reason.subtitle}
                         </p>
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="pt-2 pb-6">
-                    <p className="text-lg text-foreground leading-relaxed pl-16">
+                  <AccordionContent className="pt-2 pb-4 md:pb-6">
+                    <p className="text-base md:text-lg text-foreground leading-relaxed pl-0 md:pl-16">
                       {reason.description}
                     </p>
                   </AccordionContent>
@@ -240,16 +240,16 @@ const Index = () => {
 
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6 px-4">
               Отзывы практикующих
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-4">
               Истории тех, кто уже изменил свою жизнь с помощью Легкого Цигун
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={index} 
@@ -278,18 +278,18 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6 px-4">
                 Что такое Легкий Цигун?
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <p className="text-lg text-foreground leading-relaxed">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="space-y-4 md:space-y-6">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
                   Это древняя китайская практика работы с энергией тела через мягкие, плавные движения и дыхательные техники. В отличие от обычной гимнастики, цигун работает не только с мышцами, но и с энергетическими каналами организма.
                 </p>
-                <p className="text-lg text-foreground leading-relaxed">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
                   <strong className="text-primary">Легкий Цигун</strong> адаптирован специально для людей старшего возраста — здесь нет сложных поз или чрезмерных нагрузок. Только то, что приносит пользу и удовольствие.
                 </p>
               </div>
@@ -334,38 +334,38 @@ const Index = () => {
       <section id="gift-form" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-green-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-block bg-red-500 text-white px-6 py-4 rounded-2xl mb-6 shadow-lg">
-                <p className="text-xl font-bold mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
-                <p className="text-sm mb-3">Только до 25 декабря</p>
-                <div className="flex gap-3 justify-center">
-                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
-                    <div className="text-2xl font-bold">{timeLeft.days}</div>
+            <div className="text-center mb-8 md:mb-12">
+              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl mb-4 md:mb-6 shadow-lg">
+                <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <p className="text-xs sm:text-sm mb-2 md:mb-3">Только до 25 декабря</p>
+                <div className="flex gap-2 md:gap-3 justify-center flex-wrap">
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
                     <div className="text-xs">дней</div>
                   </div>
-                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
-                    <div className="text-2xl font-bold">{timeLeft.hours}</div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.hours}</div>
                     <div className="text-xs">часов</div>
                   </div>
-                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
-                    <div className="text-2xl font-bold">{timeLeft.minutes}</div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.minutes}</div>
                     <div className="text-xs">минут</div>
                   </div>
-                  <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-lg min-w-[70px]">
-                    <div className="text-2xl font-bold">{timeLeft.seconds}</div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.seconds}</div>
                     <div className="text-xs">секунд</div>
                   </div>
                 </div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4 px-4">
                 ВЫБЕРИТЕ ПОДАРОК
               </h2>
-              <div className="inline-block bg-yellow-400 text-primary px-5 py-2 rounded-full font-semibold text-lg">
+              <div className="inline-block bg-yellow-400 text-primary px-4 py-1.5 md:px-5 md:py-2 rounded-full font-semibold text-sm md:text-lg">
                 ⚡ Места ограничены!
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               {tariffs.map((tariff) => (
                 <Card 
                   key={tariff.id}
@@ -377,29 +377,29 @@ const Index = () => {
                   onClick={() => handleTariffClick(tariff.link)}
                 >
                   {tariff.recommended && (
-                    <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                    <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-secondary text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
                       ⭐ Рекомендуем
                     </div>
                   )}
                   <CardHeader className="pb-4">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
-                        <Icon name={tariff.icon} size={28} className="text-secondary" />
+                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                        <Icon name={tariff.icon} size={24} className="text-secondary md:w-7 md:h-7" />
                       </div>
                       <div>
-                        <CardTitle className="text-3xl font-bold">{tariff.name}</CardTitle>
-                        <CardDescription className="text-base mt-1">{tariff.description}</CardDescription>
+                        <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold">{tariff.name}</CardTitle>
+                        <CardDescription className="text-sm md:text-base mt-1">{tariff.description}</CardDescription>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-4 mt-4">
-                      <div className="text-muted-foreground line-through text-2xl">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-3 md:mt-4">
+                      <div className="text-muted-foreground line-through text-lg md:text-2xl">
                         {tariff.oldPrice} ₽
                       </div>
-                      <div className="text-4xl font-bold text-secondary">
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
                         {tariff.newPrice} ₽
                       </div>
-                      <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="bg-red-500 text-white px-2.5 py-1 md:px-3 rounded-full text-xs md:text-sm font-semibold">
                         Скидка {Math.round((1 - parseInt(tariff.newPrice.replace(/\s/g, '')) / parseInt(tariff.oldPrice.replace(/\s/g, ''))) * 100)}%
                       </div>
                     </div>
@@ -414,7 +414,7 @@ const Index = () => {
                       ))}
                     </div>
                     <Button 
-                      className="w-full mt-6 hover-scale text-lg py-6"
+                      className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
                       size="lg"
                       variant={tariff.recommended ? "default" : "outline"}
                     >
@@ -425,12 +425,12 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-8 md:mt-12 text-center">
               <Card className="border-2 border-primary/30 bg-gradient-to-r from-amber-50 to-green-50 max-w-2xl mx-auto">
-                <CardContent className="pt-6">
-                  <div className="space-y-3 text-left">
-                    <p className="text-lg"><strong>В основе курса:</strong> «Мой Цигун. Моя энергия» — первая ступень</p>
-                    <p className="text-base text-muted-foreground">
+                <CardContent className="pt-4 md:pt-6">
+                  <div className="space-y-2 md:space-y-3 text-left">
+                    <p className="text-base md:text-lg"><strong>В основе курса:</strong> «Мой Цигун. Моя энергия» — первая ступень</p>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Понятные простые уроки под присмотром опытного мастера. Всё просто и удобно 🙌
                     </p>
                   </div>
@@ -438,16 +438,16 @@ const Index = () => {
               </Card>
             </div>
 
-            <p className="text-sm text-muted-foreground text-center mt-8">
+            <p className="text-xs md:text-sm text-muted-foreground text-center mt-6 md:mt-8 px-4">
               После выбора тарифа вы перейдёте на страницу оплаты
             </p>
           </div>
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground py-12">
+      <footer className="bg-primary text-primary-foreground py-8 md:py-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-lg mb-4">
+          <p className="text-base md:text-lg mb-3 md:mb-4">
             Подарите родителям здоровье, радость и долголетие 🎄
           </p>
           <p className="text-sm opacity-80">
