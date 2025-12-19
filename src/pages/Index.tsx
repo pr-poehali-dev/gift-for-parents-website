@@ -93,7 +93,7 @@ const tariffs = [
       'Продолжительность: 3 месяца',
       'Дополнительный доступ: 3 месяца'
     ],
-    link: 'https://your-payment-link.com/without-chat'
+    link: 'https://olvonata.ru/Lightqigong'
   },
   {
     id: 'with-chat',
@@ -111,7 +111,7 @@ const tariffs = [
       'Обмен опытом с другими практикующими'
     ],
     recommended: true,
-    link: 'https://your-payment-link.com/with-chat'
+    link: 'https://olvonata.ru/Lightqigong_copy'
   }
 ];
 
