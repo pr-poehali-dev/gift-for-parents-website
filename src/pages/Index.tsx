@@ -64,7 +64,7 @@ const reasons = [
 
 const testimonials = [
   {
-    name: 'Марина',
+    name: 'Марина, 66 лет',
     text: 'Леночка! Я открыла сегодня в своем теле огромную энергию, я даже сама от себя не ожидала таких волнующих ощущений энергии 🥰 Это было мощное что-то для меня! Начала ощущаться энергия в руках, животе, лице! Слезы просто захватывали прямо волнами при вдыхании! Тело дрожало, руки тряслись в энергии. Лодочки в центре, при приближении друг к другу и вытягивании нити средним пальцем, визуализировалась нить, и покалывания во всех пальцах, но в среднем сильнее всего (сердце). При приближении рук друг к другу, энергия не давала сближаться - только раскрывать больше и больше! С земли в ладони шла сильная энергия и снова слезы! В конце, когда положила ладонь на ладонь сзади, на место родовой силы, ладони были холодные, но со вздохом этот вихрь энергии снова нахлынул, я даже увидела какое-то желтое свечение, и в своих ладонях почувствовала пульсацию! Я благодарна Леночка за такую мощную практику, именно сегодня! 🙏🥰❤️',
     avatar: '👩'
   },
@@ -270,6 +270,38 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 md:mb-8 px-4">
+                Обо мне
+              </h2>
+              <div className="flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden flex-shrink-0 border-4 border-secondary shadow-xl">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/d67ae690-441e-452d-8d2f-2f4a5968367d.jpg" 
+                    alt="Елена - преподаватель цигун"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-left space-y-4">
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                    Сертифицированный преподаватель цигун и других восточных практик.
+                  </p>
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                    <strong className="text-primary">Мастер с многолетним стажем.</strong>
+                  </p>
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                    Ученица одного из самых известных китайских мастеров ушу <strong className="text-secondary">шифу Шенч Чжи</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -322,6 +354,85 @@ const Index = () => {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6 px-4">
+                План занятий
+              </h2>
+            </div>
+
+            <Card className="border-2 border-secondary/20 bg-white shadow-xl">
+              <CardHeader>
+                <CardDescription className="text-base md:text-lg text-foreground leading-relaxed">
+                  Курс проходит в отдельном канале Телеграм. Без дополнительных сайтов и переходов🙌 (уроки открываются каждый день)
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <p className="text-lg md:text-xl font-semibold text-primary mb-4">
+                    Три месяца легких ежедневных практик, которые шаг за шагом меняют качество жизни.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-primary">Ежедневные Упражнения:</h3>
+                  <div className="flex gap-3">
+                    <Icon name="Check" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <p className="text-foreground">Для баланса и устойчивости</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <Icon name="Check" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <p className="text-foreground">Для легких и внутренних органов</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <Icon name="Check" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <p className="text-foreground">Для восстановления мозга</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <Icon name="Plus" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <div>
+                      <p className="text-foreground font-semibold">Легкий утренний комплекс из 8 движений</p>
+                      <p className="text-muted-foreground">Который пожилой человек в состоянии выучить за три месяца.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <Icon name="Plus" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <div>
+                      <p className="text-foreground font-semibold">Вся база знаний из любимого курса моих учеников «Мой Цигун. Моя Энергия» Первая ступень.</p>
+                      <p className="text-muted-foreground">(Видео так же будут регулярно выкладываться в канале курса).</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <Icon name="Plus" className="text-secondary flex-shrink-0 mt-1" size={20} />
+                    <div>
+                      <p className="text-foreground font-semibold">Возможность быть со мной на связи 7 дней в неделю</p>
+                      <p className="text-muted-foreground">(в некоторых тарифах)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-6 bg-gradient-to-r from-secondary/10 to-primary/10 rounded-2xl">
+                  <p className="text-xl md:text-2xl font-bold text-primary text-center">
+                    Легкий цигун — это одна из лучших инвестиций в здоровье родителей.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
