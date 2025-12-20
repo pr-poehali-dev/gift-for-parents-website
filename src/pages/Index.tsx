@@ -120,7 +120,7 @@ const Index = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const targetDate = new Date('2025-12-25T23:59:59').getTime();
+      const targetDate = new Date('2025-12-21T23:59:59').getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
 
@@ -443,7 +443,7 @@ const Index = () => {
             <div className="text-center mb-8 md:mb-12">
               <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
                 <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
-                <p className="text-xs sm:text-sm mb-2 md:mb-3">Только до 25 декабря</p>
+                <p className="text-xs sm:text-sm mb-2 md:mb-3">Только до 21 декабря</p>
                 <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
                   <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
                     <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
