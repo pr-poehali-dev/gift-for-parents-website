@@ -280,7 +280,7 @@ const Index = () => {
               <div className="flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden flex-shrink-0 border-4 border-secondary shadow-xl">
                   <img 
-                    src="https://cdn.poehali.dev/projects/9793789a-2da2-472f-8a54-22f43abc84e0/files/d67ae690-441e-452d-8d2f-2f4a5968367d.jpg" 
+                    src="https://cdn.poehali.dev/files/IMG_0102.jpeg" 
                     alt="Елена - преподаватель цигун"
                     className="w-full h-full object-cover"
                   />
