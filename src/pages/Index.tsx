@@ -77,8 +77,8 @@ const testimonials = [
 
 const tariffs = [
   {
-    id: 'without-chat',
-    name: 'БЕЗ ЧАТА',
+    id: 'practice',
+    name: 'Практика',
     description: 'Самостоятельная практика',
     icon: 'Video',
     oldPrice: '9 900',
@@ -96,14 +96,14 @@ const tariffs = [
     link: 'https://olvonata.ru/Lightqigong'
   },
   {
-    id: 'with-chat',
-    name: 'С ЧАТОМ',
+    id: 'practice-support',
+    name: 'Практика с поддержкой',
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
     oldPrice: '12 900',
     newPrice: '8 000',
     features: [
-      'Всё из тарифа БЕЗ ЧАТА',
+      'Всё из тарифа Практика',
       'Доступ к общему чату участников',
       'Поддержка куратора',
       'Ответы на вопросы',
@@ -112,6 +112,26 @@ const tariffs = [
     ],
     recommended: true,
     link: 'https://olvonata.ru/Lightqigong_copy'
+  },
+  {
+    id: 'practice-vip',
+    name: 'Практика с VIP поддержкой',
+    description: 'Индивидуальное сопровождение',
+    icon: 'Crown',
+    oldPrice: '',
+    newPrice: '',
+    priceOptions: [
+      { duration: 'В течение 1 мес', price: '49 900' },
+      { duration: 'В течение 3 мес', price: '149 900' }
+    ],
+    features: [
+      'Индивидуальный чат с Еленой',
+      'Индивидуальные объясняющие видео',
+      'Проверка техники выполнения',
+      'Ответы на вопросы',
+      'Доступ к материалам 365 дней'
+    ],
+    link: 'https://olvonata.ru/Lightqigong_vip'
   }
 ];
 
@@ -471,7 +491,7 @@ const Index = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
               {tariffs.map((tariff) => (
                 <Card 
                   key={tariff.id}
@@ -498,17 +518,29 @@ const Index = () => {
                       </div>
                     </div>
                     
-                    <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-3 md:mt-4">
-                      <div className="text-muted-foreground line-through text-lg md:text-2xl">
-                        {tariff.oldPrice} ₽
+                    {tariff.priceOptions ? (
+                      <div className="space-y-3 mt-3 md:mt-4">
+                        {tariff.priceOptions.map((option, idx) => (
+                          <div key={idx} className="flex justify-between items-center p-3 bg-secondary/5 rounded-lg">
+                            <span className="text-sm font-medium">{option.duration}</span>
+                            <span className="text-xl font-bold text-secondary">{option.price} ₽</span>
+                          </div>
+                        ))}
+                        <p className="text-xs text-muted-foreground mt-2">+ доступ к материалам 365 дней</p>
                       </div>
-                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
-                        {tariff.newPrice} ₽
+                    ) : (
+                      <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-3 md:mt-4">
+                        <div className="text-muted-foreground line-through text-lg md:text-2xl">
+                          {tariff.oldPrice} ₽
+                        </div>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
+                          {tariff.newPrice} ₽
+                        </div>
+                        <div className="bg-red-500 text-white px-2.5 py-1 md:px-3 rounded-full text-xs md:text-sm font-semibold">
+                          Скидка {Math.round((1 - parseInt(tariff.newPrice.replace(/\s/g, '')) / parseInt(tariff.oldPrice.replace(/\s/g, ''))) * 100)}%
+                        </div>
                       </div>
-                      <div className="bg-red-500 text-white px-2.5 py-1 md:px-3 rounded-full text-xs md:text-sm font-semibold">
-                        Скидка {Math.round((1 - parseInt(tariff.newPrice.replace(/\s/g, '')) / parseInt(tariff.oldPrice.replace(/\s/g, ''))) * 100)}%
-                      </div>
-                    </div>
+                    )}
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
