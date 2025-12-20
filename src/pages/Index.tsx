@@ -324,7 +324,7 @@ const Index = () => {
               <Card className="border-2 border-secondary/20 bg-gradient-to-br from-secondary/5 to-primary/5">
                 <CardHeader>
                   <CardTitle className="text-2xl text-primary">Результаты практики</CardTitle>
-                  <CardDescription className="text-base">Чего ожидать через 2-3 месяца занятий</CardDescription>
+                  <CardDescription className="text-base">Чего ожидать через 2-3 недели занятий</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex gap-3">
