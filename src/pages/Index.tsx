@@ -307,6 +307,9 @@ const Index = () => {
                 </div>
                 <div className="text-left space-y-4">
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                    <strong className="text-primary">Елена Никитина</strong>
+                  </p>
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed">
                     Сертифицированный преподаватель цигун и других восточных практик.
                   </p>
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
@@ -314,6 +317,29 @@ const Index = () => {
                   </p>
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
                     Ученица одного из самых известных китайских мастеров ушу <strong className="text-secondary">шифу Шенч Чжи</strong>.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a 
+                      href="https://t.me/+49d_SUnVvHxkMjhi" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors text-lg font-semibold"
+                    >
+                      <Icon name="Send" size={24} />
+                      Telegram
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/olvonata?igsh=dHhibnRjMmlpNXQ4" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors text-lg font-semibold"
+                    >
+                      <Icon name="Instagram" size={24} />
+                      Instagram
+                    </a>
+                  </div>
+                  <p className="text-base text-muted-foreground pt-2">
+                    Узнать больше обо мне
                   </p>
                 </div>
               </div>
