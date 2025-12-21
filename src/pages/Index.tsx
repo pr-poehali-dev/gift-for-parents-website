@@ -175,7 +175,7 @@ const Index = () => {
                 <span className="text-primary font-semibold text-base md:text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
               </div>
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-red-700 text-center">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-red-700 text-center">
                   Подарок,<br />который заботится!
                 </h1>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted-foreground tracking-wide text-center">
