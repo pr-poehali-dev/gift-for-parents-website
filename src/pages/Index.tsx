@@ -300,7 +300,7 @@ const Index = () => {
               <div className="flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
                 <div className="flex-shrink-0">
                   <img 
-                    src="https://cdn.poehali.dev/files/IMG_0102.jpeg" 
+                    src="https://cdn.poehali.dev/files/IMG_0284.jpeg" 
                     alt="Елена - преподаватель цигун"
                     className="w-full max-w-sm md:max-w-md rounded-2xl shadow-xl"
                   />
