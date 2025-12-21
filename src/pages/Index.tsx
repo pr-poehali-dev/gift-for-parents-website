@@ -176,7 +176,7 @@ const Index = () => {
               </div>
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-red-700 text-center">
-                  Подарок, который заботится!
+                  Подарок,<br />который заботится!
                 </h1>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted-foreground tracking-wide text-center">
                   Легкий Цигун
