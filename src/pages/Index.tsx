@@ -121,8 +121,8 @@ const tariffs = [
     oldPrice: '',
     newPrice: '',
     priceOptions: [
-      { duration: 'В течение 1 мес', price: '49 900' },
-      { duration: 'В течение 3 мес', price: '149 900' }
+      { duration: 'В течение 1 мес', price: '49 900', link: 'https://olvonata.ru/Lightqigong_individ' },
+      { duration: 'В течение 3 мес', price: '149 900', link: 'https://olvonata.ru/Lightqigong_vip' }
     ],
     features: [
       'Индивидуальный чат с Еленой',
@@ -521,12 +521,11 @@ const Index = () => {
               {tariffs.map((tariff) => (
                 <Card 
                   key={tariff.id}
-                  className={`border-2 hover-scale cursor-pointer transition-all duration-300 ${
+                  className={`border-2 hover-scale transition-all duration-300 ${
                     tariff.recommended 
                       ? 'border-secondary bg-secondary/10 shadow-2xl scale-105' 
                       : 'hover:border-secondary hover:shadow-xl'
                   } relative overflow-hidden`}
-                  onClick={() => handleTariffClick(tariff.link)}
                 >
                   {tariff.recommended && (
                     <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-secondary text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
@@ -547,10 +546,14 @@ const Index = () => {
                     {tariff.priceOptions ? (
                       <div className="space-y-3 mt-3 md:mt-4">
                         {tariff.priceOptions.map((option, idx) => (
-                          <div key={idx} className="flex justify-between items-center p-3 bg-secondary/5 rounded-lg">
+                          <button 
+                            key={idx} 
+                            className="flex justify-between items-center p-3 bg-secondary/5 rounded-lg hover:bg-secondary/10 transition-colors cursor-pointer w-full"
+                            onClick={() => handleTariffClick(option.link)}
+                          >
                             <span className="text-sm font-medium">{option.duration}</span>
                             <span className="text-xl font-bold text-secondary">{option.price} ₽</span>
-                          </div>
+                          </button>
                         ))}
                         <p className="text-xs text-muted-foreground mt-2">+ доступ к материалам 365 дней</p>
                       </div>
@@ -577,13 +580,16 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
-                      size="lg"
-                      variant={tariff.recommended ? "default" : "outline"}
-                    >
-                      Выбрать тариф 🎁
-                    </Button>
+                    {!tariff.priceOptions && (
+                      <Button 
+                        className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
+                        size="lg"
+                        variant={tariff.recommended ? "default" : "outline"}
+                        onClick={() => handleTariffClick(tariff.link)}
+                      >
+                        Выбрать тариф 🎁
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}
