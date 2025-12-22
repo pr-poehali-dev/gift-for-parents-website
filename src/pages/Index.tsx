@@ -121,8 +121,8 @@ const tariffs = [
     oldPrice: '',
     newPrice: '',
     priceOptions: [
-      { duration: 'В течение 1 мес', price: '49 900', link: 'https://olvonata.ru/Lightqigong_individ' },
-      { duration: 'В течение 3 мес', price: '149 900', link: 'https://olvonata.ru/Lightqigong_vip' }
+      { duration: 'В течение 1 мес', price: '49 900' },
+      { duration: 'В течение 3 мес', price: '149 900' }
     ],
     features: [
       'Индивидуальный чат с Еленой',
@@ -131,7 +131,7 @@ const tariffs = [
       'Ответы на вопросы',
       'Доступ к материалам 365 дней'
     ],
-    link: 'https://olvonata.ru/Lightqigong_vip'
+    link: 'https://olvonata.ru/Lightqigong_individ'
   }
 ];
 
@@ -546,14 +546,13 @@ const Index = () => {
                     {tariff.priceOptions ? (
                       <div className="space-y-3 mt-3 md:mt-4">
                         {tariff.priceOptions.map((option, idx) => (
-                          <button 
+                          <div 
                             key={idx} 
-                            className="flex justify-between items-center p-3 bg-secondary/5 rounded-lg hover:bg-secondary/10 transition-colors cursor-pointer w-full"
-                            onClick={() => handleTariffClick(option.link)}
+                            className="flex justify-between items-center p-3 bg-secondary/5 rounded-lg"
                           >
                             <span className="text-sm font-medium">{option.duration}</span>
                             <span className="text-xl font-bold text-secondary">{option.price} ₽</span>
-                          </button>
+                          </div>
                         ))}
                         <p className="text-xs text-muted-foreground mt-2">+ доступ к материалам 365 дней</p>
                       </div>
@@ -580,16 +579,14 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    {!tariff.priceOptions && (
-                      <Button 
-                        className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
-                        size="lg"
-                        variant={tariff.recommended ? "default" : "outline"}
-                        onClick={() => handleTariffClick(tariff.link)}
-                      >
-                        Выбрать тариф 🎁
-                      </Button>
-                    )}
+                    <Button 
+                      className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
+                      size="lg"
+                      variant={tariff.recommended ? "default" : "outline"}
+                      onClick={() => handleTariffClick(tariff.link)}
+                    >
+                      Выбрать тариф 🎁
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
