@@ -82,7 +82,7 @@ const tariffs = [
     description: 'Самостоятельная практика',
     icon: 'Video',
     oldPrice: '9 900',
-    newPrice: '5 000',
+    newPrice: '5 500',
     features: [
       'Изучение разминочного комплекса цигун',
       'Тесты и ежедневные упражнения на баланс',
@@ -101,7 +101,7 @@ const tariffs = [
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
     oldPrice: '12 900',
-    newPrice: '8 000',
+    newPrice: '8 500',
     features: [
       'Всё из тарифа Практика',
       'Доступ к общему чату участников',
