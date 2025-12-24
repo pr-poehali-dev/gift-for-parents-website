@@ -91,7 +91,7 @@ const tariffs = [
       'Уроки в Telegram канале',
       'Уроки выходят через день',
       'Продолжительность: 3 месяца',
-      'Дополнительный доступ: 3 месяца'
+      'Доступ к материалам: 6 месяцев'
     ],
     link: 'https://olvonata.ru/Lightqigong'
   },
@@ -108,7 +108,8 @@ const tariffs = [
       'Поддержка куратора',
       'Ответы на вопросы',
       'Мотивация и общение с группой',
-      'Обмен опытом с другими практикующими'
+      'Обмен опытом с другими практикующими',
+      'Доступ к материалам: 1 год'
     ],
     recommended: true,
     link: 'https://olvonata.ru/Lightqigong_copy'
@@ -129,7 +130,7 @@ const tariffs = [
       'Индивидуальные объясняющие видео',
       'Проверка техники выполнения',
       'Ответы на вопросы',
-      'Доступ к материалам 365 дней'
+      'Доступ к материалам: навсегда'
     ],
     link: 'https://olvonata.ru/Lightqigong_individ'
   }
@@ -140,14 +141,17 @@ const Index = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const targetDate = new Date('2025-12-21T23:59:59').getTime();
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+      
+      const difference = tomorrow.getTime() - now.getTime();
 
       if (difference > 0) {
         setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          days: 0,
+          hours: Math.floor(difference / (1000 * 60 * 60)),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
