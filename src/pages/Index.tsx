@@ -143,26 +143,14 @@ const Index = () => {
     const calculateTimeLeft = () => {
       const now = new Date();
       
-      // Текущая дата в московском времени
-      const moscowTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Moscow' }));
-      
-      // Сегодня 6 утра по Москве
-      const targetTime = new Date(moscowTime);
-      targetTime.setHours(6, 0, 0, 0);
-      
-      // Если уже прошло 6 утра, берем завтра 6 утра
-      if (moscowTime >= targetTime) {
-        targetTime.setDate(targetTime.getDate() + 1);
-      }
-      
-      // Конвертируем обратно в локальное время для вычисления разницы
-      const targetLocal = new Date(targetTime.toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
-      const difference = targetLocal.getTime() - now.getTime();
+      // Отсчет на 25.5 часов (25 часов 30 минут)
+      const targetTime = new Date(now.getTime() + (25.5 * 60 * 60 * 1000));
+      const difference = targetTime.getTime() - now.getTime();
 
       if (difference > 0) {
         setTimeLeft({
-          days: 0,
-          hours: Math.floor(difference / (1000 * 60 * 60)),
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
