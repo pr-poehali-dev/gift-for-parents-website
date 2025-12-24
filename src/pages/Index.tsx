@@ -142,11 +142,22 @@ const Index = () => {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
-      const tomorrow = new Date(now);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      tomorrow.setHours(0, 0, 0, 0);
       
-      const difference = tomorrow.getTime() - now.getTime();
+      // Текущая дата в московском времени
+      const moscowTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Moscow' }));
+      
+      // Сегодня 6 утра по Москве
+      const targetTime = new Date(moscowTime);
+      targetTime.setHours(6, 0, 0, 0);
+      
+      // Если уже прошло 6 утра, берем завтра 6 утра
+      if (moscowTime >= targetTime) {
+        targetTime.setDate(targetTime.getDate() + 1);
+      }
+      
+      // Конвертируем обратно в локальное время для вычисления разницы
+      const targetLocal = new Date(targetTime.toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
+      const difference = targetLocal.getTime() - now.getTime();
 
       if (difference > 0) {
         setTimeLeft({
