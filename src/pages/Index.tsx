@@ -82,7 +82,7 @@ const tariffs = [
     description: 'Самостоятельная практика',
     icon: 'Video',
     oldPrice: '9 900',
-    newPrice: '5 500',
+    newPrice: '5 445',
     features: [
       'Изучение разминочного комплекса цигун',
       'Тесты и ежедневные упражнения на баланс',
@@ -100,8 +100,8 @@ const tariffs = [
     name: 'Практика с поддержкой',
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
-    oldPrice: '12 900',
-    newPrice: '8 500',
+    oldPrice: '14 900',
+    newPrice: '8 195',
     features: [
       'Всё из тарифа Практика',
       'Доступ к общему чату участников',
@@ -122,8 +122,8 @@ const tariffs = [
     oldPrice: '',
     newPrice: '',
     priceOptions: [
-      { duration: 'В течение 1 мес', price: '49 900' },
-      { duration: 'В течение 3 мес', price: '149 900' }
+      { duration: 'В течение 1 мес', price: '39 920' },
+      { duration: 'В течение 3 мес', price: '119 920' }
     ],
     features: [
       'Индивидуальный чат с Еленой',
