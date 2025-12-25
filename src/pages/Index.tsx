@@ -140,10 +140,12 @@ const Index = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    const now = new Date();
+    const targetDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    
     const calculateTimeLeft = () => {
-      const now = new Date();
-      const targetDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-      const difference = targetDate.getTime() - now.getTime();
+      const currentTime = new Date();
+      const difference = targetDate.getTime() - currentTime.getTime();
 
       if (difference > 0) {
         setTimeLeft({
@@ -152,6 +154,8 @@ const Index = () => {
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
 
