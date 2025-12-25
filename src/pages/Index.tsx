@@ -140,11 +140,9 @@ const Index = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    // Фиксированная дата окончания акции - 25 декабря 2025, 6:00 утра по Москве
-    const targetDate = new Date('2025-12-25T06:00:00+03:00');
-    
     const calculateTimeLeft = () => {
       const now = new Date();
+      const targetDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
       const difference = targetDate.getTime() - now.getTime();
 
       if (difference > 0) {
