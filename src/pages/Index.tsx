@@ -140,7 +140,7 @@ const Index = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2025-12-26T20:12:00+03:00');
+    const targetDate = new Date('2025-12-27T19:00:00+03:00');
     
     const calculateTimeLeft = () => {
       const currentTime = new Date();
