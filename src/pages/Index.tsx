@@ -140,7 +140,7 @@ const Index = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2025-12-27T19:00:00+03:00');
+    const targetDate = new Date('2025-12-28T16:00:00+03:00');
     
     const calculateTimeLeft = () => {
       const currentTime = new Date();
@@ -205,6 +205,111 @@ const Index = () => {
                 alt="Елена - преподаватель цигун"
                 className="relative rounded-3xl shadow-2xl w-full object-cover aspect-square md:aspect-[4/5]"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gift-form" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-green-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8 md:mb-12">
+              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
+                <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
+                    <div className="text-xs">дней</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.hours}</div>
+                    <div className="text-xs">часов</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.minutes}</div>
+                    <div className="text-xs">минут</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.seconds}</div>
+                    <div className="text-xs">секунд</div>
+                  </div>
+                </div>
+                <div className="inline-block bg-yellow-400 text-primary px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-base md:text-xl shadow-lg">
+                  ⚡ Места ограничены!
+                </div>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4 mt-6 md:mt-8">
+                ВЫБЕРИТЕ ПОДАРОК
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+              {tariffs.map((tariff) => (
+                <Card 
+                  key={tariff.id}
+                  className={`border-2 hover-scale transition-all duration-300 ${
+                    tariff.recommended 
+                      ? 'border-secondary bg-secondary/10 shadow-2xl scale-105' 
+                      : 'hover:border-secondary hover:shadow-xl'
+                  } relative overflow-hidden`}
+                >
+                  {tariff.recommended && (
+                    <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-secondary text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
+                      ⭐ Рекомендуем
+                    </div>
+                  )}
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                        <Icon name={tariff.icon} size={24} className="text-secondary md:w-7 md:h-7" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl md:text-2xl text-primary">{tariff.name}</CardTitle>
+                        <CardDescription className="text-sm md:text-base">{tariff.description}</CardDescription>
+                      </div>
+                    </div>
+                    {tariff.priceOptions ? (
+                      <div className="space-y-3 mt-4">
+                        {tariff.priceOptions.map((option, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-1 p-3 bg-primary/5 rounded-xl">
+                            <p className="text-sm text-muted-foreground">{option.duration}</p>
+                            <p className="text-2xl md:text-3xl font-bold text-primary">{option.price} ₽</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center gap-2 mt-4">
+                        {tariff.oldPrice && (
+                          <p className="text-lg md:text-xl text-muted-foreground line-through">{tariff.oldPrice} ₽</p>
+                        )}
+                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.newPrice} ₽</p>
+                        {tariff.oldPrice && (
+                          <div className="inline-block bg-red-500 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-sm md:text-base font-bold">
+                            -45%
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2 md:space-y-3">
+                      {tariff.features.map((feature, idx) => (
+                        <div key={idx} className="flex gap-2 md:gap-3">
+                          <Icon name="Check" className="text-secondary flex-shrink-0 mt-0.5 md:mt-1" size={18} />
+                          <p className="text-sm md:text-base text-foreground leading-relaxed">{feature}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <Button 
+                      className="w-full mt-4 md:mt-6 text-base md:text-lg py-5 md:py-6 hover-scale" 
+                      size="lg"
+                      onClick={() => handleTariffClick(tariff.link)}
+                    >
+                      Выбрать тариф
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
