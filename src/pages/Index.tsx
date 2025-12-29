@@ -173,7 +173,7 @@ const Index = () => {
         const totalSeconds = prevTime.days * 86400 + prevTime.hours * 3600 + prevTime.minutes * 60 + prevTime.seconds;
         
         if (totalSeconds <= 0) {
-          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+          return { days: 0, hours: 2, minutes: 0, seconds: 0 };
         }
 
         const newTotalSeconds = totalSeconds - 1;
