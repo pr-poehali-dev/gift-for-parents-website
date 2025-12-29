@@ -165,28 +165,27 @@ const tariffs = [
 ];
 
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 2, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2025-12-28T16:00:00+03:00');
-    
     const calculateTimeLeft = () => {
-      const currentTime = new Date();
-      const difference = targetDate.getTime() - currentTime.getTime();
+      setTimeLeft((prevTime) => {
+        const totalSeconds = prevTime.days * 86400 + prevTime.hours * 3600 + prevTime.minutes * 60 + prevTime.seconds;
+        
+        if (totalSeconds <= 0) {
+          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        }
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
+        const newTotalSeconds = totalSeconds - 1;
+        return {
+          days: Math.floor(newTotalSeconds / 86400),
+          hours: Math.floor((newTotalSeconds % 86400) / 3600),
+          minutes: Math.floor((newTotalSeconds % 3600) / 60),
+          seconds: newTotalSeconds % 60
+        };
+      });
     };
 
-    calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
