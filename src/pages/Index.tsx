@@ -90,7 +90,7 @@ const tariffs = [
       'Продолжительность: 3 месяца',
       'Доступ к материалам: 1 месяц после курса'
     ],
-    link: 'https://olvonata.ru/Lightqigong_basic'
+    link: 'https://olvonata.ru/Lightqigong_basa'
   },
   {
     id: 'practice',
