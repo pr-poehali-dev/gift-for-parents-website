@@ -165,27 +165,28 @@ const tariffs = [
 ];
 
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 2, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    const targetDate = new Date('2025-12-30T00:00:00+03:00');
+    
     const calculateTimeLeft = () => {
-      setTimeLeft((prevTime) => {
-        const totalSeconds = prevTime.days * 86400 + prevTime.hours * 3600 + prevTime.minutes * 60 + prevTime.seconds;
-        
-        if (totalSeconds <= 0) {
-          return { days: 0, hours: 2, minutes: 0, seconds: 0 };
-        }
+      const currentTime = new Date();
+      const difference = targetDate.getTime() - currentTime.getTime();
 
-        const newTotalSeconds = totalSeconds - 1;
-        return {
-          days: Math.floor(newTotalSeconds / 86400),
-          hours: Math.floor((newTotalSeconds % 86400) / 3600),
-          minutes: Math.floor((newTotalSeconds % 3600) / 60),
-          seconds: newTotalSeconds % 60
-        };
-      });
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
     };
 
+    calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
@@ -206,7 +207,7 @@ const Index = () => {
                 <span className="text-primary font-semibold text-base md:text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
               </div>
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-red-700 text-center">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-red-600 text-center uppercase">
                   Подарок,<br />который заботится!
                 </h1>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted-foreground tracking-wide text-center">
@@ -214,7 +215,7 @@ const Index = () => {
                 </h2>
               </div>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl text-center">
-                Подарите родителям не вещи, а новое качество жизни!
+                Подарите родителям заботу и радость долголетия!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
                 <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
