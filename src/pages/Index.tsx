@@ -165,9 +165,6 @@ const tariffs = [
 ];
 
 const Index = () => {
-
-
-
   const handleTariffClick = (link: string) => {
     window.open(link, '_blank');
   };
