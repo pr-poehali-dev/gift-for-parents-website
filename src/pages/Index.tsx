@@ -489,7 +489,7 @@ const Index = () => {
       <footer className="bg-primary text-primary-foreground py-8 md:py-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-base md:text-lg mb-3 md:mb-4">
-            Подарите родителям здоровье, радость и долголетие 🎄
+            Подарите родителям здоровье, радость и долголетие ❤️
           </p>
           <p className="text-sm opacity-80">
             © 2024 Легкий Цигун. Все права защищены.
