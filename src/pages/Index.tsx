@@ -81,7 +81,8 @@ const tariffs = [
     name: 'Базовый',
     description: 'Основы практики',
     icon: 'BookOpen',
-    price: '1 900',
+    oldPrice: '',
+    newPrice: '1 900',
     features: [
       'Изучение разминочного комплекса цигун',
       'Восстановление подвижности суставов',
@@ -100,7 +101,8 @@ const tariffs = [
     name: 'Практика',
     description: 'Самостоятельная практика',
     icon: 'Video',
-    price: '9 900',
+    oldPrice: '9 900',
+    newPrice: '5 445',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Изучение разминочного комплекса цигун',
@@ -124,7 +126,8 @@ const tariffs = [
     name: 'Практика с поддержкой',
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
-    price: '14 900',
+    oldPrice: '14 900',
+    newPrice: '8 195',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Всё из тарифа Практика',
@@ -143,6 +146,8 @@ const tariffs = [
     name: 'Практика с VIP поддержкой',
     description: 'Индивидуальное сопровождение',
     icon: 'Crown',
+    oldPrice: '',
+    newPrice: '',
     priceOptions: [
       { duration: 'В течение 1 мес', price: '39 920' },
       { duration: 'В течение 3 мес', price: '119 920' }
@@ -252,7 +257,15 @@ const Index = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center gap-2 mt-4">
-                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.price} ₽</p>
+                        {tariff.oldPrice && (
+                          <p className="text-lg md:text-xl text-muted-foreground line-through">{tariff.oldPrice} ₽</p>
+                        )}
+                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.newPrice} ₽</p>
+                        {tariff.oldPrice && (
+                          <div className="inline-block bg-red-500 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-sm md:text-base font-bold">
+                            -45%
+                          </div>
+                        )}
                       </div>
                     )}
                   </CardHeader>
