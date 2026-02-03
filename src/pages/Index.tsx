@@ -81,7 +81,8 @@ const tariffs = [
     name: 'Базовый',
     description: 'Основы практики',
     icon: 'BookOpen',
-    price: '1 900',
+    oldPrice: '',
+    newPrice: '1 900',
     features: [
       'Изучение разминочного комплекса цигун',
       'Восстановление подвижности суставов',
@@ -100,7 +101,8 @@ const tariffs = [
     name: 'Практика',
     description: 'Самостоятельная практика',
     icon: 'Video',
-    price: '9 900',
+    oldPrice: '9 900',
+    newPrice: '5 445',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Изучение разминочного комплекса цигун',
@@ -124,7 +126,8 @@ const tariffs = [
     name: 'Практика с поддержкой',
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
-    price: '14 900',
+    oldPrice: '14 900',
+    newPrice: '8 195',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Всё из тарифа Практика',
@@ -143,6 +146,8 @@ const tariffs = [
     name: 'Практика с VIP поддержкой',
     description: 'Индивидуальное сопровождение',
     icon: 'Crown',
+    oldPrice: '',
+    newPrice: '',
     priceOptions: [
       { duration: 'В течение 1 мес', price: '39 920' },
       { duration: 'В течение 3 мес', price: '119 920' }
@@ -160,6 +165,32 @@ const tariffs = [
 ];
 
 const Index = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const targetDate = new Date('2025-12-30T00:00:00+03:00');
+    
+    const calculateTimeLeft = () => {
+      const currentTime = new Date();
+      const difference = targetDate.getTime() - currentTime.getTime();
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleTariffClick = (link: string) => {
     window.open(link, '_blank');
@@ -211,7 +242,31 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
+              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
+                <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
+                    <div className="text-xs">дней</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.hours}</div>
+                    <div className="text-xs">часов</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.minutes}</div>
+                    <div className="text-xs">минут</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.seconds}</div>
+                    <div className="text-xs">секунд</div>
+                  </div>
+                </div>
+                <div className="inline-block bg-yellow-400 text-primary px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-base md:text-xl shadow-lg">
+                  ⚡ Места ограничены!
+                </div>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4 mt-6 md:mt-8">
                 ВЫБЕРИТЕ ПОДАРОК
               </h2>
             </div>
@@ -252,7 +307,15 @@ const Index = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center gap-2 mt-4">
-                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.price} ₽</p>
+                        {tariff.oldPrice && (
+                          <p className="text-lg md:text-xl text-muted-foreground line-through">{tariff.oldPrice} ₽</p>
+                        )}
+                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.newPrice} ₽</p>
+                        {tariff.oldPrice && (
+                          <div className="inline-block bg-red-500 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-sm md:text-base font-bold">
+                            -45%
+                          </div>
+                        )}
                       </div>
                     )}
                   </CardHeader>
@@ -554,7 +617,31 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
+              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
+                <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
+                <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
+                    <div className="text-xs">дней</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.hours}</div>
+                    <div className="text-xs">часов</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.minutes}</div>
+                    <div className="text-xs">минут</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
+                    <div className="text-xl md:text-2xl font-bold">{timeLeft.seconds}</div>
+                    <div className="text-xs">секунд</div>
+                  </div>
+                </div>
+                <div className="inline-block bg-yellow-400 text-primary px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-base md:text-xl shadow-lg">
+                  ⚡ Места ограничены!
+                </div>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4 mt-6 md:mt-8">
                 ВЫБЕРИТЕ ПОДАРОК
               </h2>
             </div>
