@@ -328,13 +328,6 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      className="w-full mt-4 md:mt-6 text-base md:text-lg py-5 md:py-6 hover-scale" 
-                      size="lg"
-                      onClick={() => handleTariffClick(tariff.link)}
-                    >
-                      Выбрать тариф
-                    </Button>
                   </CardContent>
                 </Card>
               ))}
