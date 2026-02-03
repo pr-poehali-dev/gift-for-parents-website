@@ -81,8 +81,7 @@ const tariffs = [
     name: 'Базовый',
     description: 'Основы практики',
     icon: 'BookOpen',
-    oldPrice: '',
-    newPrice: '1 900',
+    price: '1 900',
     features: [
       'Изучение разминочного комплекса цигун',
       'Восстановление подвижности суставов',
@@ -101,8 +100,7 @@ const tariffs = [
     name: 'Практика',
     description: 'Самостоятельная практика',
     icon: 'Video',
-    oldPrice: '9 900',
-    newPrice: '5 445',
+    price: '9 900',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Изучение разминочного комплекса цигун',
@@ -126,8 +124,7 @@ const tariffs = [
     name: 'Практика с поддержкой',
     description: 'С поддержкой и общением',
     icon: 'MessageCircle',
-    oldPrice: '14 900',
-    newPrice: '8 195',
+    price: '14 900',
     features: [
       'Видео основного комплекса с доступом навсегда',
       'Всё из тарифа Практика',
@@ -146,8 +143,6 @@ const tariffs = [
     name: 'Практика с VIP поддержкой',
     description: 'Индивидуальное сопровождение',
     icon: 'Crown',
-    oldPrice: '',
-    newPrice: '',
     priceOptions: [
       { duration: 'В течение 1 мес', price: '39 920' },
       { duration: 'В течение 3 мес', price: '119 920' }
@@ -257,15 +252,7 @@ const Index = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center gap-2 mt-4">
-                        {tariff.oldPrice && (
-                          <p className="text-lg md:text-xl text-muted-foreground line-through">{tariff.oldPrice} ₽</p>
-                        )}
-                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.newPrice} ₽</p>
-                        {tariff.oldPrice && (
-                          <div className="inline-block bg-red-500 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-sm md:text-base font-bold">
-                            -45%
-                          </div>
-                        )}
+                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.price} ₽</p>
                       </div>
                     )}
                   </CardHeader>
