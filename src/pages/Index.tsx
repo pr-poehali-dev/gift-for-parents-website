@@ -218,7 +218,7 @@ const Index = () => {
                 Подарите родителям заботу и радость долголетия!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
-                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => window.open('https://olvonata.ru/Lightqigong_tarif', '_blank')}>
                   Оформить подарок
                 </Button>
                 <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('reasons')?.scrollIntoView({ behavior: 'smooth' })}>
