@@ -165,32 +165,6 @@ const tariffs = [
 ];
 
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    const targetDate = new Date('2025-12-30T00:00:00+03:00');
-    
-    const calculateTimeLeft = () => {
-      const currentTime = new Date();
-      const difference = targetDate.getTime() - currentTime.getTime();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const handleTariffClick = (link: string) => {
     window.open(link, '_blank');
@@ -328,13 +302,7 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      className="w-full mt-4 md:mt-6 text-base md:text-lg py-5 md:py-6 hover-scale" 
-                      size="lg"
-                      onClick={() => handleTariffClick(tariff.link)}
-                    >
-                      Выбрать тариф
-                    </Button>
+
                   </CardContent>
                 </Card>
               ))}
@@ -624,31 +592,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <div className="inline-block bg-red-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg">
-                <p className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3">🎄 НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ!</p>
-                <div className="flex gap-2 md:gap-3 justify-center flex-wrap mb-3 md:mb-4">
-                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
-                    <div className="text-xl md:text-2xl font-bold">{timeLeft.days}</div>
-                    <div className="text-xs">дней</div>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
-                    <div className="text-xl md:text-2xl font-bold">{timeLeft.hours}</div>
-                    <div className="text-xs">часов</div>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
-                    <div className="text-xl md:text-2xl font-bold">{timeLeft.minutes}</div>
-                    <div className="text-xs">минут</div>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur px-2 py-1.5 md:px-3 md:py-2 rounded-lg min-w-[60px] md:min-w-[70px]">
-                    <div className="text-xl md:text-2xl font-bold">{timeLeft.seconds}</div>
-                    <div className="text-xs">секунд</div>
-                  </div>
-                </div>
-                <div className="inline-block bg-yellow-400 text-primary px-6 py-2 md:px-8 md:py-3 rounded-xl font-bold text-base md:text-xl shadow-lg">
-                  ⚡ Места ограничены!
-                </div>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4 mt-6 md:mt-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
                 ВЫБЕРИТЕ ПОДАРОК
               </h2>
             </div>
@@ -715,14 +659,7 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      className="w-full mt-4 md:mt-6 hover-scale text-base md:text-lg py-5 md:py-6"
-                      size="lg"
-                      variant={tariff.recommended ? "default" : "outline"}
-                      onClick={() => handleTariffClick(tariff.link)}
-                    >
-                      Выбрать тариф 🎁
-                    </Button>
+
                   </CardContent>
                 </Card>
               ))}
