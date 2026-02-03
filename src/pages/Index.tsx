@@ -165,6 +165,9 @@ const tariffs = [
 ];
 
 const Index = () => {
+
+
+
   const handleTariffClick = (link: string) => {
     window.open(link, '_blank');
   };
@@ -191,7 +194,7 @@ const Index = () => {
                 Подарите родителям заботу и радость долголетия!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
-                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => window.open('https://olvonata.ru/Lightqigong_tarif', '_blank')}>
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('gift-form')?.scrollIntoView({ behavior: 'smooth' })}>
                   Оформить подарок
                 </Button>
                 <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto" onClick={() => document.getElementById('reasons')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -212,58 +215,6 @@ const Index = () => {
       </section>
 
       <section id="gift-form" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-green-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary px-4">
-                ВЫБЕРИТЕ ПОДАРОК
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {tariffs.map((tariff) => (
-                <Card 
-                  key={tariff.id}
-                  className={`border-2 hover-scale transition-all duration-300 ${
-                    tariff.recommended 
-                      ? 'border-secondary bg-secondary/10 shadow-2xl scale-105' 
-                      : 'hover:border-secondary hover:shadow-xl'
-                  } relative overflow-hidden`}
-                >
-                  {tariff.recommended && (
-                    <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-secondary text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
-                      ⭐ Рекомендуем
-                    </div>
-                  )}
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name={tariff.icon} size={24} className="text-secondary md:w-7 md:h-7" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl md:text-2xl text-primary">{tariff.name}</CardTitle>
-                        <CardDescription className="text-sm md:text-base">{tariff.description}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2 md:space-y-3">
-                      {tariff.features.map((feature, idx) => (
-                        <div key={idx} className="flex gap-2 md:gap-3">
-                          <Icon name="Check" className="text-secondary flex-shrink-0 mt-0.5 md:mt-1" size={18} />
-                          <p className="text-sm md:text-base text-foreground leading-relaxed">{feature}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="reasons" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
@@ -321,7 +272,28 @@ const Index = () => {
                         <CardDescription className="text-sm md:text-base">{tariff.description}</CardDescription>
                       </div>
                     </div>
-
+                    {tariff.priceOptions ? (
+                      <div className="space-y-3 mt-4">
+                        {tariff.priceOptions.map((option, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-1 p-3 bg-primary/5 rounded-xl">
+                            <p className="text-sm text-muted-foreground">{option.duration}</p>
+                            <p className="text-2xl md:text-3xl font-bold text-primary">{option.price} ₽</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center gap-2 mt-4">
+                        {tariff.oldPrice && (
+                          <p className="text-lg md:text-xl text-muted-foreground line-through">{tariff.oldPrice} ₽</p>
+                        )}
+                        <p className="text-3xl md:text-4xl font-bold text-primary">{tariff.newPrice} ₽</p>
+                        {tariff.oldPrice && (
+                          <div className="inline-block bg-red-500 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-sm md:text-base font-bold">
+                            -45%
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-2 md:space-y-3">
@@ -332,7 +304,13 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-
+                    <Button 
+                      className="w-full mt-4 md:mt-6 text-base md:text-lg py-5 md:py-6 hover-scale" 
+                      size="lg"
+                      onClick={() => handleTariffClick(tariff.link)}
+                    >
+                      Выбрать тариф
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
