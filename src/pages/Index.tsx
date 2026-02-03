@@ -177,9 +177,6 @@ const Index = () => {
         <div className="container mx-auto px-4 py-12 md:py-24 relative">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-6 md:space-y-8 animate-fade-in">
-              <div className="inline-block">
-                <span className="text-primary font-semibold text-base md:text-xl tracking-wide">🎄 НА НОВЫЙ ГОД</span>
-              </div>
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-red-600 text-center uppercase">
                   Подарок,<br />который заботится!
